@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goods Transport System</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div class="container">
+        <h1>User Profile</h1>
+        
+        <div class="profile-info">
+            <p><strong>First Name:</strong> <span id="firstName"></span></p>
+            <p><strong>Last Name:</strong> <span id="lastName"></span></p>
+            <p><strong>Phone Number:</strong> <span id="phoneNumber"></span></p>
+            <p><strong>Email:</strong> <span id="email"></span></p>
+        </div>
+
+        <h2>Products Purchased</h2>
+        <div id="purchasedProducts">
+            <p>No products purchased yet.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Fetch profile information from localStorage
+            const userProfile = JSON.parse(localStorage.getItem("userProfile")) || {};
+            const purchasedProducts = JSON.parse(localStorage.getItem("purchasedProducts")) || [];
+
+            // Display user profile information
+            document.getElementById("firstName").textContent = userProfile.firstName || "N/A";
+            document.getElementById("lastName").textContent = userProfile.lastName || "N/A";
+            document.getElementById("phoneNumber").textContent = userProfile.phoneNumber || "N/A";
+            document.getElementById("email").textContent = userProfile.email || "N/A";
+
+            // Display purchased products
+            const purchasedProductsContainer = document.getElementById("purchasedProducts");
+            if (purchasedProducts.length > 0) {
+                purchasedProductsContainer.innerHTML = ""; // Clear placeholder text
+                purchasedProducts.forEach(product => {
+                    const productElement = document.createElement("div");
+                    productElement.classList.add("product");
+
+                    productElement.innerHTML = `
+                        <p><strong>Product:</strong> ${product.name}</p>
+                        <p><strong>Amount:</strong> ₹${product.amount}</p>
+                    `;
+
+                    purchasedProductsContainer.appendChild(productElement);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

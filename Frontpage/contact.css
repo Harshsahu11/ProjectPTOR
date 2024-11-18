@@ -1,0 +1,141 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background: linear-gradient(120deg, #6a11cb, #2575fc);
+    background-size: 200% 200%;
+    animation: gradientAnimation 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Smooth gradient animation */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Container styling */
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1.5s ease;
+}
+
+/* Header and section titles */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #f9f9f9;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #ffe57f;
+}
+
+/* Paragraph styling */
+p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #e0e0e0;
+}
+
+/* Link styling with hover effect */
+a {
+    color: #ffe57f;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ffab40;
+}
+
+/* Contact form styling */
+.contact-form {
+    margin-top: 1rem;
+}
+
+.input-group {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    outline: none;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #ddd;
+}
+
+/* Button styling with hover animation */
+.btn {
+    background: linear-gradient(120deg, #ffe57f, #ffab40);
+    border: none;
+    padding: 0.75rem 2rem;
+    color: #000;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    background: linear-gradient(120deg, #ffab40, #ffe57f);
+}
+
+/* Animated fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media query for responsiveness */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1.25rem;
+    }
+    .container {
+        padding: 1.5rem;
+    }
+}

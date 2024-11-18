@@ -1,0 +1,169 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+}
+
+.back a {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    color: #fff;
+    background-color: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.back a:hover {
+    background-color: #555;
+}
+
+
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    width: 350px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.form-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #ffd700;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.input-group i {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #ffd700;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.8rem 1rem 0.8rem 2.5rem;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    outline: none;
+    transition: background 0.3s ease;
+}
+
+.input-group input::placeholder {
+    color: #d3d3d3;
+}
+
+.input-group input:focus {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.btn {
+    background: #ffd700;
+    color: #333;
+    padding: 0.8rem;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background: #ffec99;
+    transform: scale(1.05);
+}
+
+
+.or {
+    margin: 1rem 0;
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 1.5rem;
+    color: #ffd700;
+}
+
+.icons i:hover {
+    color: #ffec99;
+    cursor: pointer;
+}
+
+
+.links p {
+    color: #d3d3d3;
+}
+
+.links button {
+    background: none;
+    border: none;
+    color: #ffd700;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.links button:hover {
+    color: #ffec99;
+}
+
+.recover a {
+    color: #ffd700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.recover a:hover {
+    color: #ffec99;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@media (max-width: 400px) {
+    .container {
+        width: 90%;
+        padding: 1.5rem;
+    }
+}

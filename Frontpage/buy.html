@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goods Transport System</title>
+    <link rel="stylesheet" href="buy.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Available Items for Purchase</h1>
+        
+        <!-- Login Button -->
+        <button id="loginButton" class="btn" onclick="redirectToLogin()" style="display: none;">Login</button>
+
+        <div id="itemList" class="item-list"></div>
+    </div>
+
+    <script>
+        // Check if the user is logged in
+        document.addEventListener("DOMContentLoaded", function() {
+            const itemList = document.getElementById("itemList");
+            const items = JSON.parse(localStorage.getItem("items")) || [];
+            const currentUser = localStorage.getItem("currentUser"); // Assumes a 'currentUser' is set when a user logs in
+
+            // Display login button if user is not logged in
+            if (!currentUser) {
+                document.getElementById("loginButton").style.display = "block";
+            }
+
+            if (items.length === 0) {
+                itemList.innerHTML = "<p>No items available for purchase.</p>";
+                return;
+            }
+
+            items.forEach((item, index) => {
+                const card = document.createElement("div");
+                card.classList.add("card");
+
+                // HTML structure for each item card
+                card.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="item-image">
+                    <h3>${item.name}</h3>
+                    <p><strong>Bid Amount:</strong> ₹${item.bidAmount}</p>
+                    <p><strong>Distance:</strong> ${item.distance} km</p>
+                    <p><strong>Delivery Type:</strong> ${item.deliveryType}</p>
+                    <p><strong>Location:</strong> ${item.location}</p>
+                    <button class="btn" onclick="purchaseItem('${item.name}', '${item.image}', ${item.bidAmount}, ${item.distance}, '${item.deliveryType}', '${item.location}')">Purchase</button>
+                `;
+
+                // If the item was added by the current user, show the delete button
+                if (item.addedBy === currentUser) {
+                    const deleteButton = document.createElement("button");
+                    deleteButton.classList.add("btn", "delete-btn");
+                    deleteButton.textContent = "Delete";
+                    deleteButton.onclick = function() {
+                        deleteItem(index);
+                    };
+                    card.appendChild(deleteButton);
+                }
+
+                itemList.appendChild(card);
+            });
+        });
+
+        // Function to handle the purchase action
+        function purchaseItem(name, image, bidAmount, distance, deliveryType, location) {
+            const currentUser = localStorage.getItem("currentUser");
+
+            // Check if user is logged in before allowing purchase
+            if (!currentUser) {
+                alert("Please log in to make a purchase.");
+                window.location.href = "login.html";
+                return;
+            }
+
+            const purchaseDetails = {
+                name,
+                image,
+                bidAmount,
+                distance,
+                deliveryType,
+                location
+            };
+            localStorage.setItem("purchaseDetails", JSON.stringify(purchaseDetails));
+            window.location.href = "transaction.html";
+        }
+
+        // Function to delete item by index and update local storage
+        function deleteItem(index) {
+            let items = JSON.parse(localStorage.getItem("items")) || [];
+            items.splice(index, 1); // Remove item from array by index
+            localStorage.setItem("items", JSON.stringify(items)); // Update localStorage
+            alert("Item deleted successfully!");
+            window.location.reload(); // Reload to update the item list
+        }
+
+        // Redirect to login page if user is not logged in
+        function redirectToLogin() {
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+</html>

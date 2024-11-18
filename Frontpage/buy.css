@@ -1,0 +1,157 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Gradient Background */
+body {
+    background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Container Styling */
+.container {
+    max-width: 800px;
+    width: 90%;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* Item Card Styling */
+.card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
+    animation: slideUp 0.6s ease forwards;
+}
+
+/* Card Hover Effect */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Image Styling */
+.item-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Card Content Styling */
+.card h3 {
+    font-size: 1.5em;
+    color: #333;
+    padding: 15px;
+    text-align: center;
+}
+
+.card p {
+    padding: 0 15px;
+    color: #666;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+.card button {
+    margin: 15px;
+}
+
+/* Button Styling */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #ffffff;
+    background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    transition: background 0.3s, transform 0.3s;
+    text-decoration: none;
+}
+
+/* Button Hover and Active Effects */
+.btn:hover {
+    background: linear-gradient(45deg, #ff8e53, #ff6b6b);
+    transform: scale(1.05);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* Delete Button Styling */
+.delete-btn {
+    background: #ff4d4d;
+}
+
+.delete-btn:hover {
+    background: #ff1a1a;
+}
+
+/* Login Button Styling */
+#loginButton {
+    margin: 20px auto;
+    display: block;
+}
+
+/* Item List Grid Layout */
+.item-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .item-list {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slide Up Animation */
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

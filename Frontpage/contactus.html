@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goods Transport System</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Goods Transport System</h1>
+        <p>We're here to help! Reach out to us through any of the following ways.</p>
+
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            <p><strong>Email:</strong> <a href="mailto:harshsahu1109@gmail.com">harshsahutransport@gmail.com</a></p>
+            <p><strong>Phone:</strong> <a href="tel:6388875540">+91 6388875540</a></p>
+            <p><strong>Address:</strong> Jhansi, UttarPradesh</p>
+        </div>
+
+        <div class="social-media">
+            <h2>Follow Us</h2>
+            <p>Stay connected with us on social media for the latest updates and promotions.</p>
+            <p>
+                <a href="https://www.instagram.com/goodstransport" target="_blank">Instagram</a> |
+                <a href="https://www.facebook.com/goodstransport" target="_blank">Facebook</a> |
+                <a href="https://github.com/harshsahu11" target="_blank">Github</a> |
+                <a href="https://www.linkedin.com/company/goodstransport" target="_blank">LinkedIn</a>
+            </p>
+        </div>
+
+        <div class="office-hours">
+            <h2>Office Hours</h2>
+            <p>Monday to Friday: 9:00 AM - 6:00 PM</p>
+            <p>Saturday: 10:00 AM - 4:00 PM</p>
+            <p>Sunday: Closed</p>
+        </div>
+
+        <div class="contact-form">
+            <h2>Send Us a Message</h2>
+            <form id="contactForm">
+                <div class="input-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required placeholder="Your Name">
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required placeholder="Your Email">
+                </div>
+                <div class="input-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" required placeholder="Your Message"></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Thank you for contacting us! We'll get back to you shortly.");
+            // Additional form handling can be implemented here.
+        });
+    </script>
+</body>
+</html>

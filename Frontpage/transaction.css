@@ -1,0 +1,87 @@
+/* Reset some default styles */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #84fab0, #8fd3f4); /* Gradient background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+    padding: 20px;
+    animation: fadeIn 1s ease-in; /* Fade-in animation */
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    max-width: 600px; /* Set a max width */
+    width: 100%;
+    text-align: center;
+    animation: slideIn 0.5s ease-in; /* Slide-in animation */
+}
+
+h1 {
+    color: #0072ff;
+    margin-bottom: 20px;
+}
+
+.transaction-details {
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in; /* Fade-in animation */
+}
+
+.item-image {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: transform 0.3s; /* Scale on hover */
+}
+
+.item-image:hover {
+    transform: scale(1.05); /* Scale image on hover */
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #0072ff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Transition effects */
+    margin-top: 20px; /* Spacing above the button */
+}
+
+.btn:hover {
+    background-color: #005bb5; /* Darker shade on hover */
+    transform: translateY(-2px); /* Move button up on hover */
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

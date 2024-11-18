@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goods Transport System</title>
+    <link rel="stylesheet" href="sell.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Add New Item</h1>
+        <form id="itemForm">
+            <div class="input-group">
+                <label for="itemName">Item Name</label>
+                <input type="text" id="itemName" placeholder="Enter item name" required>
+            </div>
+            <div class="input-group">
+                <label for="itemImage">Item Image</label>
+                <input type="file" id="itemImage" accept="image/*" required>
+            </div>
+            <div class="input-group">
+                <label for="bidAmount">Bid Amount</label>
+                <input type="number" id="bidAmount" placeholder="Enter bid amount" required>
+            </div>
+            <div class="input-group">
+                <label for="distance">Distance (in km)</label>
+                <input type="number" id="distance" placeholder="Enter distance" required>
+            </div>
+            <div class="input-group">
+                <label for="deliveryType">Delivery Type</label>
+                <select id="deliveryType" required>
+                    <option value="Standard">Standard</option>
+                    <option value="Express">Express</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="location">Location</label>
+                <input type="text" id="location" placeholder="Enter location" required>
+            </div>
+            <button type="submit" class="btn">Add Item</button>
+        </form>
+
+        <h2>Items</h2>
+        <div id="itemList" class="item-list">
+        </div>
+    </div>
+
+    <script>
+        // Function to check if the user is logged in
+        function checkLogin() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (!isLoggedIn) {
+                alert('Please log in to access the Sell Items page.');
+                window.location.href = 'login.html'; // Redirect to login page if not logged in
+            }
+        }
+
+        // Check login on page load
+        document.addEventListener('DOMContentLoaded', checkLogin);
+
+        // Add item functionality if user is logged in
+        document.getElementById('itemForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const itemName = document.getElementById('itemName').value;
+            const itemImage = document.getElementById('itemImage').files[0];
+            const bidAmount = document.getElementById('bidAmount').value;
+            const distance = document.getElementById('distance').value;
+            const deliveryType = document.getElementById('deliveryType').value;
+            const location = document.getElementById('location').value;
+
+            // Create a file reader to read the image
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const items = JSON.parse(localStorage.getItem('items')) || [];
+                const newItem = {
+                    name: itemName,
+                    image: event.target.result,
+                    bidAmount: bidAmount,
+                    distance: distance,
+                    deliveryType: deliveryType,
+                    location: location,
+                    addedBy: localStorage.getItem('currentUser') // Track the user who added the item
+                };
+
+                items.push(newItem);
+                localStorage.setItem('items', JSON.stringify(items));
+                alert('Item added successfully!');
+                document.getElementById('itemForm').reset(); // Clear form fields after submission
+            };
+            reader.readAsDataURL(itemImage);
+        });
+    </script>
+</body>
+</html>
